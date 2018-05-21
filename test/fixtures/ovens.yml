@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  state: false
+  time: 2018-05-18 12:26:34
+  power: 1
+
+two:
+  state: false
+  time: 2018-05-18 12:26:34
+  power: 1

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Project</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+<div class="container">
+	<div class="row">
+		<div class="header">Microwave</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-2 offset-3" id="state">
+			State: <%= @oven.state %>
+		</div>
+		<div class="col-md-2" id="time">
+			Time: <%= @oven.time %>
+		</div>
+		<div class="col-md-2" id="power">
+			Power: <%= @oven.power %>
+		</div>
+	</div>
+		<div class="row">	
+
+		</div>
+	<div class="row buttons">
+		<div class="col-md-2 offset-1">
+			<button id="inc_time" class="btn btn-primary">T+</button>
+		</div>
+		<div class="col-md-2">
+			<button id="dec_time" class="btn btn-info">T-</button>
+		</div>
+		<div class="col-md-2">
+			<button id="cancel" class="btn btn-danger">C</button>
+		</div>		
+		<div class="col-md-2">
+			<button id="inc_power" class="btn btn-primary">P+</button>
+		</div>
+		<div class="col-md-2">
+			<button id="dec_power" class="btn btn-info">P-</button>
+		</div>
+	</div>
+</div>
+		
+</body>
+</html>
