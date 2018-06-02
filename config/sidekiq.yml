@@ -1,0 +1,5 @@
+# config/sidekiq.yml
+:schedule:
+  HardWorker:
+    every: '1s'
+    class: HardWorker

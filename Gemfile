@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 
+gem 'sidekiq'
+gem 'sidekiq-scheduler'
 
 gem 'pry-byebug'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -27,7 +29,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'bootstrap', '~> 4.1.1'
 gem 'autoprefixer-rails'
-
+gem 'redis-rails'	
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

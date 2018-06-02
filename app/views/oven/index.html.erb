@@ -3,13 +3,13 @@
 <head>
   <title>Project</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 
 <div class="container">
+	<div id="responses"></div>
 	<div class="row">
 		<div class="header">Microwave</div>
 	</div>
@@ -19,29 +19,35 @@
 			State: <%= @oven.state %>
 		</div>
 		<div class="col-md-2" id="time">
-			Time: <%= @oven.time %>
+			Time: <%= @oventime %>
 		</div>
 		<div class="col-md-2" id="power">
-			Power: <%= @oven.power %>
+			Power: <%= @ovenpower %>
 		</div>
 	</div>
 		<div class="row">	
 
 		</div>
 	<div class="row buttons">
-		<div class="col-md-2 offset-1">
+		<div class="col-md-1 offset-2">
+			<button id="switch_on" class="btn btn-primary">ON</button>
+		</div>
+		<div class="col-md-1">
+			<button id="switch_off" class="btn btn-danger">OFF</button>
+		</div>
+		<div class="col-md-1">
 			<button id="inc_time" class="btn btn-primary">T+</button>
 		</div>
-		<div class="col-md-2">
+		<div class="col-md-1">
 			<button id="dec_time" class="btn btn-info">T-</button>
 		</div>
-		<div class="col-md-2">
+		<div class="col-md-1">
 			<button id="cancel" class="btn btn-danger">C</button>
 		</div>		
-		<div class="col-md-2">
+		<div class="col-md-1">
 			<button id="inc_power" class="btn btn-primary">P+</button>
 		</div>
-		<div class="col-md-2">
+		<div class="col-md-1">
 			<button id="dec_power" class="btn btn-info">P-</button>
 		</div>
 	</div>

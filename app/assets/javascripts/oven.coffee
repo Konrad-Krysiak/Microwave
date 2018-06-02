@@ -1,18 +1,33 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
-
 $(document).ready ->
+	setInterval () ->
+		$.ajax({
+			url: '/oven/status',
+			success: (data) ->
+				$('#time').html "Time: " + data['time']
+				$('#power').html "Power: " + data['power']
+		})
+	, 1000
 
-	$('#inc_time').click ->
+
+	$("#switch_on").click (e) ->
 		$.ajax({
 			url: '/oven/event',
 			method: 'POST',
 			dataType: "json",
-			data: {"microwave_action": "increase_time"},
-			success: (data, textStatus, jqXHR) ->
-				alert("")
+			data: {"microwave_action": "switch_on"},
+			success: (data) ->
+				$("#state").html "State: " + data['state']
+		})
 
+
+	$("#switch_off").click (e) ->
+		$.ajax({
+			url: '/oven/event',
+			method: 'POST',
+			dataType: "json",
+			data: {"microwave_action": "switch_off"},
+			success: (data) ->
+				$("#state").html "State: " + data['state']
 		})
 
 	$("#inc_power").click (e) ->
@@ -22,5 +37,37 @@ $(document).ready ->
 			dataType: "json",
 			data: {"microwave_action": "increase_power"},
 			success: (data) ->
-				$("#power").text(data["power"])
+				$("#responses").html "power increased by 100"
+		})
+
+
+	$("#dec_power").click (e) ->
+		$.ajax({
+			url: '/oven/event',
+			method: 'POST',
+			dataType: "json",
+			data: {"microwave_action": "decrease_power"},
+			success: (data) ->
+				$("#responses").html "power decreased by 100"
+		})
+
+
+	$('#inc_time').click ->
+		$.ajax({
+			url: '/oven/event',
+			method: 'POST',
+			dataType: "json",
+			data: {"microwave_action": "increase_time"},
+			success: (data) ->
+				$("#responses").html "time increased by 10"
+		})
+
+	$('#dec_time').click ->
+		$.ajax({
+			url: '/oven/event',
+			method: 'POST',
+			dataType: "json",
+			data: {"microwave_action": "decrease_time"},
+			success: (data) ->
+				$("#responses").html "time decreased by 10"
 		})

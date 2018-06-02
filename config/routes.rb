@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => "/sidekiq"
+
   root to: 'oven#index'
   get '/oven' => 'oven#index'
   post '/oven/event' => 'oven#event'
