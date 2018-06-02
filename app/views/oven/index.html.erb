@@ -8,6 +8,49 @@
 <body>
 
 
+
+
+<div class="container">
+	<div class="row">
+		<div class="microwave-bg">
+			<div class="part-1">
+				<img src="http://roundtablepizzasurrey.com/wp-content/uploads/2017/08/chicken_tandoori_pizza.png" alt="" id="image" class="img1 spinning">
+			</div>
+			<div class="part-2">
+				<div class="responser">
+					<span id="state"><%= @ovenstate %></span>
+					<span id="time"><%= @oventime %>s</span>
+					<span id="power"><%= @ovenpower %></span>
+				</div>
+				<div class="buttons">
+					<button id="switch_on" class="btn btn-primary">ON</button>
+					<button id="switch_off" class="btn btn-danger">OFF</button>
+					<button id="inc_time" class="btn btn-primary">T+</button>
+					<button id="dec_time" class="btn btn-info">T-</button>
+					<button id="cancel" class="btn btn-danger">C</button>
+					<button id="inc_power" class="btn btn-primary">P+</button>
+					<button id="dec_power" class="btn btn-info">P-</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
 <div class="container">
 	<div id="responses"></div>
 	<div class="row">
@@ -25,9 +68,7 @@
 			Power: <%= @ovenpower %>
 		</div>
 	</div>
-		<div class="row">	
-
-		</div>
+	<div class="row"></div>
 	<div class="row buttons">
 		<div class="col-md-1 offset-2">
 			<button id="switch_on" class="btn btn-primary">ON</button>
@@ -51,7 +92,7 @@
 			<button id="dec_power" class="btn btn-info">P-</button>
 		</div>
 	</div>
-</div>
+</div> -->
 		
 </body>
 </html>

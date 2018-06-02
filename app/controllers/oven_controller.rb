@@ -4,10 +4,11 @@ class OvenController < ApplicationController
 	def index
 		@oventime = redis.get('time')
 		@ovenpower = redis.get('power')
+		@ovenstate = redis.get('state')
 	end
 
 	def status
-		render json: { time: redis.get('time'), power: redis.get('power') }
+		render json: { time: redis.get('time'), power: redis.get('power'), state: redis.get('state') }
 	end
 
 	def event
@@ -27,10 +28,10 @@ class OvenController < ApplicationController
 			redis.set('power', redis.get('power').to_i-100)
 			render json: { }
 		when "switch_on"
-			redis.set('state', 'true')
+			redis.set('state', 'ON')
 			render json: { state: "ON" }
 		when "switch_off"
-			redis.set('state', 'false')
+			redis.set('state', 'OFF')
 			render json: { state: "OFF"}
 		else
 			puts "There is no microwave action such as " + params[:microwave_action]

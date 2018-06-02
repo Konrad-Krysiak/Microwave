@@ -1,28 +1,55 @@
-// Place all the styles related to the Oven controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 body {
 	margin: 50px;
 }
-.header {
+.microwave-bg{
+	background: grey;
+	display: flex;
+	height: 400px;
+	width: 800px;
 	margin: 0 auto;
-	color: red;
-	font-size: 45px;
-	font-weight: bold;
-	padding-bottom: 50px;
-}
-.buttons {
-	margin: 50px 0 0 0;
-}
-.switch_on {
-	background: red;
+	.part-1 {
+		flex: 2;
+		background: #fff;
+		margin: 25px;
+		display: flex;
+		justify-content: center;;
+		.img1 {
+			width: 75%;
+		}
+	}
+	.part-2 {
+		flex: 1;
+		display: flex;
+		background: orange;
+		margin: 25px;
+		flex-direction: column;
+		.responser {
+			margin: 10px 30px 10px 30px;
+			text-align: center;
+			font-family: "Ubuntu", sans-serif;
+			display: flex;
+			justify-content: space-around;
+			font-weight: bold;
+		}
+		.buttons {
+			margin: 10px 30px 10px 30px;
+			flex-basis: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			button {
+				margin: 0 10px 0 10px;
+			}
+		}
+	}
 }
 
-#responses {
-	text-align: center;
-	background: lime;
-	border-radius: 1em;
-	font-size: 25px;
-	font-family: "Ubuntu";
+
+.spinning {
+	animation: infinite-spinning 10s infinite linear;
+}
+
+@keyframes infinite-spinning {
+	0% {transform: rotate(0deg);}
+	100% {transform: rotate(360deg);}
 }

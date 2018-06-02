@@ -1,10 +1,18 @@
 $(document).ready ->
+
+	$.ajax({
+	url: '/oven/status',
+	success: (data) ->
+		if data['state']=="OFF"
+			$(".spinning").css "animation-play-state", "paused"
+})
+
 	setInterval () ->
 		$.ajax({
 			url: '/oven/status',
 			success: (data) ->
-				$('#time').html "Time: " + data['time']
-				$('#power').html "Power: " + data['power']
+				$('#time').html data['time'] + "s"
+				$('#power').html data['power'] + "W"
 		})
 	, 1000
 
@@ -16,7 +24,8 @@ $(document).ready ->
 			dataType: "json",
 			data: {"microwave_action": "switch_on"},
 			success: (data) ->
-				$("#state").html "State: " + data['state']
+				$("#state").html data['state']
+				$(".spinning").css "animation-play-state", "running"
 		})
 
 
@@ -27,7 +36,8 @@ $(document).ready ->
 			dataType: "json",
 			data: {"microwave_action": "switch_off"},
 			success: (data) ->
-				$("#state").html "State: " + data['state']
+				$("#state").html data['state']
+				$(".spinning").css "animation-play-state", "paused"
 		})
 
 	$("#inc_power").click (e) ->
@@ -37,7 +47,7 @@ $(document).ready ->
 			dataType: "json",
 			data: {"microwave_action": "increase_power"},
 			success: (data) ->
-				$("#responses").html "power increased by 100"
+				return
 		})
 
 
@@ -48,7 +58,7 @@ $(document).ready ->
 			dataType: "json",
 			data: {"microwave_action": "decrease_power"},
 			success: (data) ->
-				$("#responses").html "power decreased by 100"
+				return
 		})
 
 
@@ -59,7 +69,7 @@ $(document).ready ->
 			dataType: "json",
 			data: {"microwave_action": "increase_time"},
 			success: (data) ->
-				$("#responses").html "time increased by 10"
+				return
 		})
 
 	$('#dec_time').click ->
@@ -69,5 +79,5 @@ $(document).ready ->
 			dataType: "json",
 			data: {"microwave_action": "decrease_time"},
 			success: (data) ->
-				$("#responses").html "time decreased by 10"
+				return
 		})
